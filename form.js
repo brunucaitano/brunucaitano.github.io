@@ -72,7 +72,7 @@ async function gerarPDF() {
             doc.rect(0, altura - rodapeAltura, largura, rodapeAltura, "F");
             doc.setTextColor("#FFFFFF");
             doc.setFontSize(9);
-            doc.text("Descrição rodapé: Distrito Industrial de Luziânia, S/N Lote Área 32 Bloco Módulo 03 - Luziânia-GO | Cep: 72.832-000", largura / 2, altura - rodapeAltura + 6, { align: "center" });
+            doc.text("Distrito Industrial de Luziânia, S/N Lote Área 32 Bloco Módulo 03 - Luziânia-GO | Cep: 72.832-000", largura / 2, altura - rodapeAltura + 6, { align: "center" });
             doc.text("www.reflow.eco | @reflow.eco", largura / 2, altura - rodapeAltura + 12, { align: "center" });
         }
 
@@ -293,4 +293,5 @@ function capturarAssinaturaComFundoBranco() {
     });
 
 }
+
 
