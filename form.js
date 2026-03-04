@@ -87,7 +87,7 @@ async function gerarPDF() {
         adicionarCabecalho();
 
         const timbrado = await carregarImagemComFundoBranco("timbrado.webp");
-        doc.addImage(timbrado, "WEBP", 6, 0, tamanhoTimbrado, tamanhoTimbrado);
+        doc.addImage(timbrado, "WEBP", 4, 0, tamanhoTimbrado, tamanhoTimbrado);
 
         doc.setFontSize(16);
         doc.setTextColor("#000000");
@@ -293,5 +293,6 @@ function capturarAssinaturaComFundoBranco() {
     });
 
 }
+
 
 
