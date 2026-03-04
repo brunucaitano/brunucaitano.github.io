@@ -151,7 +151,7 @@ async function gerarPDF() {
             if (contador === imagensPorLinha) { contador = 0; xImg = 10; y += tamanhoImagem + 5; }
             if (y + tamanhoImagem > altura - 50) { doc.addPage(); y = 20; xImg = 10; contador = 0; }
             const imgData = await fileToDataURL(file);
-            doc.rect(xImg - 1, y - 1, tamanhoImagem + 2, tamanhoImagem + 2); // borda leve
+            doc.rect(xImg - 1, y - 1, tamanhoImagem + 2, tamanhoImagem + 2);
             doc.addImage(imgData, "WEBP", xImg, y, tamanhoImagem, tamanhoImagem);
             xImg += tamanhoImagem + espaco;
             contador++;
@@ -243,4 +243,5 @@ function capturarAssinaturaComFundoBranco() {
         ctx.drawImage(assinaturaCanvas, 0, 0);
         resolve(canvas.toDataURL("image/webp"));
     });
+
 }
