@@ -1,3 +1,9 @@
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+
 const inputImagens = document.getElementById("imagens");
 const preview = document.getElementById("preview");
 
@@ -173,4 +179,5 @@ canvas.addEventListener("mouseleave", parar);
 
 canvas.addEventListener("touchstart", iniciar);
 canvas.addEventListener("touchmove", desenhar);
+
 canvas.addEventListener("touchend", parar);
