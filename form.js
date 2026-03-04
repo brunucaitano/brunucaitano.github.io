@@ -58,7 +58,7 @@ async function gerarPDF() {
         const areaUtilAltura = altura - margemBase;
 
         const rodapeAltura = 17;
-        const tamanhoTimbrado = 60;
+        const tamanhoTimbrado = 45;
 
         function adicionarCabecalho() {
             const dataAtual = new Date().toLocaleString();
@@ -87,7 +87,7 @@ async function gerarPDF() {
         adicionarCabecalho();
 
         const timbrado = await carregarImagemComFundoBranco("timbrado.webp");
-        doc.addImage(timbrado, "WEBP", 10, 0, tamanhoTimbrado, tamanhoTimbrado);
+        doc.addImage(timbrado, "WEBP", 6, 0, tamanhoTimbrado, tamanhoTimbrado);
 
         doc.setFontSize(16);
         doc.setTextColor("#000000");
@@ -293,3 +293,4 @@ function capturarAssinaturaComFundoBranco() {
     });
 
 }
+
