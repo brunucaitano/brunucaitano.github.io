@@ -147,7 +147,7 @@ textarea {
     border: 3px solid rgba(255,255,255,0.3);
     border-top: 3px solid #fff;
     border-radius: 50%;
-    top: 50%;
+    top: 43%;
     left: 50%;
     margin-top: -9px;
     margin-left: -9px;
@@ -182,4 +182,5 @@ textarea {
     .form-col {
         min-width: 100%;
     }
+
 }
