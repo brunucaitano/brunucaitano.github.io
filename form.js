@@ -226,7 +226,7 @@ async function gerarPDF() {
             );
 
             doc.setDrawColor(0, 0, 0);
-            doc.setLineWidth(0.5);
+            doc.setLineWidth(0.2);
             doc.rect(xImg, y, tamanhoImagem, tamanhoImagem, "S");
 
             xImg += tamanhoImagem + espaco;
@@ -326,5 +326,6 @@ function capturarAssinaturaComFundoBranco() {
     });
 
 }
+
 
 
