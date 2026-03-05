@@ -213,9 +213,13 @@ async function gerarPDF() {
             }
 
             const imgData = await fileToDataURL(file);
+
             doc.addImage(imgData, "WEBP", xImg, y, tamanhoImagem, tamanhoImagem);
-            doc.setDrawColor(0);
-            doc.rect(xImg, y, tamanhoImagem, tamanhoImagem);
+
+            doc.setDrawColor(0, 0, 0);
+            doc.setLineWidth(1);
+            doc.rect(xImg, y, tamanhoImagem, tamanhoImagem, "S");
+
             xImg += tamanhoImagem + espaco;
             contador++;
         }
@@ -311,4 +315,5 @@ function capturarAssinaturaComFundoBranco() {
         ctx.drawImage(assinaturaCanvas, 0, 0);
         resolve(canvas.toDataURL("image/webp"));
     });
+
 }
