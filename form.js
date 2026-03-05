@@ -214,10 +214,19 @@ async function gerarPDF() {
 
             const imgData = await fileToDataURL(file);
 
-            doc.addImage(imgData, "WEBP", xImg, y, tamanhoImagem, tamanhoImagem);
+            const padding = 2;
+
+            doc.addImage(
+                imgData,
+                "WEBP",
+                xImg + padding,
+                y + padding,
+                tamanhoImagem - padding * 2,
+                tamanhoImagem - padding * 2
+            );
 
             doc.setDrawColor(0, 0, 0);
-            doc.setLineWidth(1);
+            doc.setLineWidth(0.8);
             doc.rect(xImg, y, tamanhoImagem, tamanhoImagem, "S");
 
             xImg += tamanhoImagem + espaco;
@@ -317,3 +326,4 @@ function capturarAssinaturaComFundoBranco() {
     });
 
 }
+
