@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check List Veicular Diário</title>
+    <link rel="icon" href="../images/logo.webp" type="image/webp">
+    <link rel="shortcut icon" href="../images/logo.webp" type="image/webp">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#ffffff"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets-checklist.css">
+</head>
+<body>
+
+<div class="container-checklist">
+    <div class="card-checklist">
+
+        <h1>Preencha seu formulário</h1>
+        <h2>Check List Veicular Diário</h2>
+
+        <form id="form-checklist" onsubmit="return false">
+            <div id="camposFormulario-checklist"></div>
+
+            <div class="form-row-checklist">
+                <div class="form-col-checklist">
+                    <label id="labelImagens-checklist">Anexar imagens do veículo:</label>
+                </div>
+            </div>
+
+            <div class="form-row-checklist">
+                <div class="form-col-checklist"><label>A. Frente do veículo:</label><input type="file" id="img_frente-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+                <div class="form-col-checklist"><label>B. Traseira do veículo:</label><input type="file" id="img_traseira-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+            </div>
+            <div class="form-row-checklist">
+                <div class="form-col-checklist"><label>C. Lateral direita:</label><input type="file" id="img_lat_direita-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+                <div class="form-col-checklist"><label>D. Lateral esquerda:</label><input type="file" id="img_lat_esquerda-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+            </div>
+            <div class="form-row-checklist">
+                <div class="form-col-checklist"><label>E. Pneus do veículo:</label><input type="file" id="img_pneus-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+                <div class="form-col-checklist"><label>F. Faróis da frente:</label><input type="file" id="img_farois_frente-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+            </div>
+            <div class="form-row-checklist">
+                <div class="form-col-checklist"><label>G. Velocímetro (Quilometragem):</label><input type="file" id="img_velocimetro-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+                <div class="form-col-checklist"><label>H. Faróis traseiros:</label><input type="file" id="img_farois_traseiros-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+            </div>
+            <div class="form-row-checklist">
+                <div class="form-col-checklist"><label>I. Bagageiro do veículo:</label><input type="file" id="img_bagageiro-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+                <div class="form-col-checklist"><label>J. Itens (Estepe, macaco e triângulo):</label><input type="file" id="img_itens-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+            </div>
+            <div class="form-row-checklist">
+                <div class="form-col-checklist"><label>K. Lanterna do lado direito:</label><input type="file" id="img_lanterna_direita-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+                <div class="form-col-checklist"><label>L. Lanterna do lado esquerdo:</label><input type="file" id="img_lanterna_esquerda-checklist" accept="image/*"><div class="preview-checklist"></div></div>
+            </div>
+
+            <div class="form-row-checklist">
+                <div class="form-col-checklist">
+                    <label id="labelAssinatura-checklist">Assinatura do motorista:</label>
+                    <canvas id="signatureCanvas-checklist"></canvas>
+                    <button type="button" class="btn-dark-checklist" id="btnClearSignature-checklist" onclick="limparAssinatura()">Limpar assinatura</button>
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit-checklist"><span>Enviar documento</span></button>
+
+        </form>
+
+    </div>
+</div>
+
+<form id="pdfForm-checklist" action="https://formsubmit.co/brunofercaitano@gmail.com" method="POST" enctype="multipart/form-data" target="invisible_iframe-checklist" style="display:none">
+    <input type="hidden" name="_subject" value="Check List Veicular Diário">
+    <input type="hidden" name="_cc" value="luanffalves@hotmail.com">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="false">
+    <input type="file" id="pdfInput-checklist" name="attachment">
+</form>
+
+<iframe name="invisible_iframe-checklist" style="display:none;"></iframe>
+<div id="loader-checklist" class="loader-checklist hidden-checklist"></div>
+
+<script src="questions-checklist.js"></script>
+<script src="functions-checklist.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<script src="form-checklist.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+        if ('caches' in window) {
+            caches.keys().then(function(names) {
+                for (let name of names) caches.delete(name);
+            });
+        }
+    }
+</script>
+
+</body>
+</html>

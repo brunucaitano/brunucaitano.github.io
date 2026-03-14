@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reflow - Início</title>
+        <link rel="icon" href="images/logo.webp" type="image/webp" />
+        <link rel="shortcut icon" href="images/logo.webp" type="image/webp" />
+        <link rel="manifest" href="manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta
+            http-equiv="Cache-Control"
+            content="no-cache, no-store, must-revalidate"
+        />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="logo-container">
+                    <img
+                        src="images/logo-hub.webp"
+                        alt="Reflow Logo"
+                        class="logo"
+                    />
+                </div>
+
+                <div class="obs-container">
+                    <p>
+                        <strong>Observação:</strong> Este sistema não armazena
+                        quaisquer informações pessoais de seus usuários,
+                        garantindo total privacidade.
+                    </p>
+                </div>
+
+                <div class="buttons-container">
+                    <a href="checklist-veicular/checklist.html" class="btn-main"
+                        >Checklist diário veicular</a
+                    >
+                    <a
+                        href="analise-laboratorial/analise.html"
+                        class="btn-main btn-secondary"
+                        >Relatório da análise laboratorial</a
+                    >
+                </div>
+
+                <p class="footer-text">Em breve novas funções</p>
+            </div>
+        </div>
+
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .getRegistrations()
+                    .then(function (registrations) {
+                        for (let registration of registrations) {
+                            registration.unregister();
+                        }
+                    });
+                if ("caches" in window) {
+                    caches.keys().then(function (names) {
+                        for (let name of names) caches.delete(name);
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>

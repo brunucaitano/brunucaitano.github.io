@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Relatório da Análise Laboratorial</title>
+        <link rel="icon" href="../images/logo.webp" type="image/webp" />
+        <link
+            rel="shortcut icon"
+            href="../images/logo.webp"
+            type="image/webp"
+        />
+        <link rel="manifest" href="../manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta
+            http-equiv="Cache-Control"
+            content="no-cache, no-store, must-revalidate"
+        />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets-analise.css" />
+    </head>
+    <body>
+        <div class="container-analise">
+            <div class="card-analise">
+                <h1>Preencha seu formulário</h1>
+                <h2>Relatório da Análise Laboratorial</h2>
+
+                <form id="form-analise" onsubmit="return false;">
+                    <div id="camposFormulario-analise"></div>
+
+                    <div class="form-row-analise">
+                        <div class="form-col-analise">
+                            <label id="labelImagens-analise"
+                                >Anexar imagens da perícia:</label
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row-analise">
+                        <div class="form-col-analise">
+                            <label>A. Becker com amostra:</label
+                            ><input
+                                type="file"
+                                id="img_becker-analise"
+                                accept="image/*"
+                            />
+                            <div class="preview-analise"></div>
+                        </div>
+                        <div class="form-col-analise">
+                            <label>B. Resultado (umidade):</label
+                            ><input
+                                type="file"
+                                id="img_umidade-analise"
+                                accept="image/*"
+                            />
+                            <div class="preview-analise"></div>
+                        </div>
+                    </div>
+                    <div class="form-row-analise">
+                        <div class="form-col-analise">
+                            <label>C. Termômetro:</label
+                            ><input
+                                type="file"
+                                id="img_termometro-analise"
+                                accept="image/*"
+                            />
+                            <div class="preview-analise"></div>
+                        </div>
+                        <div class="form-col-analise"></div>
+                    </div>
+
+                    <div class="form-row-analise">
+                        <div class="form-col-analise">
+                            <label id="labelAssinatura-analise"
+                                >Assinatura do técnico:</label
+                            >
+                            <canvas id="signatureCanvas-analise"></canvas>
+                            <button
+                                type="button"
+                                class="btn-dark-analise"
+                                id="btnClearSignature-analise"
+                                onclick="limparAssinatura()"
+                            >
+                                Limpar assinatura
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-submit-analise">
+                        <span>Enviar documento</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <form
+            id="pdfForm-analise"
+            action="https://formsubmit.co/brunofercaitano@gmail.com"
+            method="POST"
+            enctype="multipart/form-data"
+            target="invisible_iframe-analise"
+            style="display: none"
+        >
+            <input
+                type="hidden"
+                name="_subject"
+                value="Relatório da Análise Laboratorial"
+            />
+            <input type="hidden" name="_cc" value="luanffalves@hotmail.com" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="false" />
+            <input type="file" id="pdfInput-analise" name="attachment" />
+        </form>
+
+        <iframe name="invisible_iframe-analise" style="display: none"></iframe>
+        <div id="loader-analise" class="loader-analise hidden-analise"></div>
+
+        <script src="questions-analise.js"></script>
+        <script src="functions-analise.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+        <script src="form-analise.js"></script>
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .getRegistrations()
+                    .then(function (registrations) {
+                        for (let registration of registrations) {
+                            registration.unregister();
+                        }
+                    });
+                if ("caches" in window) {
+                    caches.keys().then(function (names) {
+                        for (let name of names) caches.delete(name);
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>
